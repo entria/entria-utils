@@ -32,6 +32,7 @@
     "eslint-plugin-react": "^7.1.0",
     "flow-bin": "^0.48.0",
     "gh-pages": "^1.0.0",
+    "jest": "^20.0.4",
     "lint-staged": "^4.0.0",
     "pre-commit": "^1.2.2",
     "prettier": "^1.4.4",
@@ -55,6 +56,8 @@
   "scripts": {
     "prepublish": "npm run build",
     "build": "babel src -d lib",
+    "test": "jest --coverage --runInBand --forceExit",
+    "test:watch": "jest --watch --coverage",
     "lint": "eslint --ext js src",
     "lint:staged": "lint-staged",
     "start": "start-storybook -p 6006 -c storybook",
