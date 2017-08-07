@@ -1,4 +1,4 @@
-export function concat(objectOne, objectTwo) {
+export function concat(objectOne: Object, objectTwo: Object): Object {
   const concatenated = {
     ...objectOne,
   };
