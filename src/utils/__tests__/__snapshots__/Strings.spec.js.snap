@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`capitalize 1`] = `"Barney Stinson"`;
+
+exports[`isAlpha - should return false if invalid 1`] = `false`;
+
+exports[`isAlpha - should return true if valid 1`] = `true`;
+
+exports[`isEmail - should return false if invalid 1`] = `false`;
+
+exports[`isEmail - should return true if valid 1`] = `true`;
+
 exports[`isEmpty - should return false if 0 1`] = `false`;
 
 exports[`isEmpty - should return false if filled 1`] = `false`;
@@ -9,3 +19,7 @@ exports[`isEmpty - should return true if empty string 1`] = `true`;
 exports[`isEmpty - should return true if null 1`] = `true`;
 
 exports[`isEmpty - should return true if undefined 1`] = `true`;
+
+exports[`numbers 1`] = `"123123"`;
+
+exports[`uppercaseFirstLetter 1`] = `"Barney stinson"`;
