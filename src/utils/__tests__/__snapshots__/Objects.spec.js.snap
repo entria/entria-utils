@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should concat 1`] = `
+exports[`concat - should concat 1`] = `
 Object {
   "jane": "doe",
   "john": "doe",
 }
 `;
 
-exports[`should deep concat 1`] = `
+exports[`concat - should deep concat 1`] = `
 Object {
   "me": Object {
     "john": "doe",
@@ -18,7 +18,7 @@ Object {
 }
 `;
 
-exports[`should deep override 1`] = `
+exports[`concat - should deep override 1`] = `
 Object {
   "me": Object {
     "john": "doe awesome",
@@ -26,21 +26,21 @@ Object {
 }
 `;
 
-exports[`should override 1`] = `
+exports[`concat - should override 1`] = `
 Object {
   "john": "doe awesome",
 }
 `;
 
-exports[`should return an empty object 1`] = `Object {}`;
+exports[`concat - should return an empty object 1`] = `Object {}`;
 
-exports[`should return objectOne 1`] = `
+exports[`concat - should return objectOne 1`] = `
 Object {
   "john": "doe",
 }
 `;
 
-exports[`should return objectTwo 1`] = `
+exports[`concat - should return objectTwo 1`] = `
 Object {
   "jane": "doe",
 }

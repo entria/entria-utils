@@ -1,4 +1,5 @@
-export function concat(objectOne: Object, objectTwo: Object): Object {
+// @flow
+export const concat = (objectOne: Object, objectTwo: Object): Object => {
   const concatenated = {
     ...objectOne,
   };
@@ -15,4 +16,4 @@ export function concat(objectOne: Object, objectTwo: Object): Object {
   });
 
   return concatenated;
-}
+};
