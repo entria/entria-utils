@@ -6,6 +6,8 @@ exports[`hexToRGBA - with alpha 1`] = `"rgba(255,255,255,0.5)"`;
 
 exports[`hexToRGBA - without alpha 1`] = `"rgba(255,255,255,1)"`;
 
+exports[`hexToRGBObject - bad hex 1`] = `"Bad hex"`;
+
 exports[`hexToRGBObject 1`] = `
 Object {
   "b": 255,

@@ -5,7 +5,11 @@ it('hexToRGBObject', () => {
 });
 
 it('hexToRGBObject - bad hex', () => {
-  expect(Colors.hexToRGBObject('#fff')).toThrowErrorMatchingSnapshot();
+  function testHexToRGBObject() {
+    Colors.hexToRGBObject('#fff');
+  }
+
+  expect(testHexToRGBObject).toThrowErrorMatchingSnapshot();
 });
 
 it('hexToRGB', () => {
