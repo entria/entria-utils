@@ -46,6 +46,9 @@
     "react": ">=0.14",
     "react-dom": ">=0.14"
   },
+  "jest": {
+    "setupFiles": ["<rootDir>/test/mocks/localStorage.js"]
+  },
   "lint-staged": {
     "src/**/*.js": [
       "prettier --write --single-quote true --trailing-comma all --print-width 100",
