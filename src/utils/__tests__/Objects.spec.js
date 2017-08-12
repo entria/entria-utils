@@ -1,34 +1,34 @@
 import * as Objects from '../Objects';
 
-it('should return an empty object', () => {
+it('concat - should return an empty object', () => {
   const objectOne = {};
   const objectTwo = {};
 
   expect(Objects.concat(objectOne, objectTwo)).toMatchSnapshot();
 });
 
-it('should return objectOne', () => {
+it('concat - should return objectOne', () => {
   const objectOne = { john: 'doe' };
   const objectTwo = {};
 
   expect(Objects.concat(objectOne, objectTwo)).toMatchSnapshot();
 });
 
-it('should return objectTwo', () => {
+it('concat - should return objectTwo', () => {
   const objectOne = {};
   const objectTwo = { jane: 'doe' };
 
   expect(Objects.concat(objectOne, objectTwo)).toMatchSnapshot();
 });
 
-it('should concat', () => {
+it('concat - should concat', () => {
   const objectOne = { john: 'doe' };
   const objectTwo = { jane: 'doe' };
 
   expect(Objects.concat(objectOne, objectTwo)).toMatchSnapshot();
 });
 
-it('should override', () => {
+it('concat - should override', () => {
   const objectOne = { john: 'doe' };
   const objectTwo = { john: 'doe awesome' };
 
@@ -36,14 +36,14 @@ it('should override', () => {
 });
 
 
-it('should deep concat', () => {
+it('concat - should deep concat', () => {
   const objectOne = { me: { john: 'doe' } };
   const objectTwo = { wife: { jane: 'doe' } };
 
   expect(Objects.concat(objectOne, objectTwo)).toMatchSnapshot();
 });
 
-it('should deep override', () => {
+it('concat - should deep override', () => {
   const objectOne = { me: { john: 'doe' } };
   const objectTwo = { me: { john: 'doe awesome' } };
 
