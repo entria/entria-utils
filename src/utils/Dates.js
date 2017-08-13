@@ -20,7 +20,7 @@ export function extract(value: string): ExtractedDate {
 
   // general = yyyy-mm-dd
   return {
-    day: value.substr(7, 2),
+    day: value.substr(8, 2),
     month: value.substr(5, 2),
     year: value.substr(0, 4),
   };
