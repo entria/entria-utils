@@ -1,6 +1,6 @@
 {
   "name": "@entria/utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Entria utils",
   "keywords": [
     "react",
@@ -47,7 +47,9 @@
     "react-dom": ">=0.14"
   },
   "jest": {
-    "setupFiles": ["<rootDir>/test/mocks/localStorage.js"]
+    "setupFiles": [
+      "<rootDir>/test/mocks/localStorage.js"
+    ]
   },
   "lint-staged": {
     "src/**/*.js": [
