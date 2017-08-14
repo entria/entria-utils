@@ -29,7 +29,7 @@ export function extract(value: string): ExtractedDate {
 export function parse(value) {
   if (value && typeof value === 'string') {
     const { day, month, year } = extract(value);
-    return new Date(year, parseInt(month) - 1, day);
+    return new Date(year, parseInt(month, 10) - 1, day);
   }
 
   return new Date(value);

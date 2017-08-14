@@ -1,7 +1,7 @@
 import * as Locale from '../Locale';
 
 it('set - no props', () => {
-  Locale.set()
+  Locale.set();
   expect(Locale.get()).toMatchSnapshot();
 });
 
