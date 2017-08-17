@@ -6,14 +6,26 @@ import fnsCompareAsc from 'date-fns/compare_asc';
 
 import * as Locale from './Locale';
 
+type PossibleDate = Date | string;
+
+type GeneralConfig = {
+  locale: string,
+};
+const defaultConfig: GeneralConfig = {
+  locale: Locale.get(),
+};
+
 type ExtractedDate = {
   day: string,
   month: string,
   year: string,
 };
-export function extract(value: string, locale: string = Locale.get()): ExtractedDate {
+export function extract(
+  value: string,
+  config: GeneralConfig = { ...defaultConfig }
+): ExtractedDate {
   // brazil = dd/mm/yyyy
-  if (locale === Locale.BRAZIL) {
+  if (config.locale === Locale.BRAZIL) {
     return {
       day: value.substr(0, 2),
       month: value.substr(3, 2),
@@ -29,19 +41,25 @@ export function extract(value: string, locale: string = Locale.get()): Extracted
   };
 }
 
-export function parse(value: string | Date): Date {
+export function parse(
+  value: PossibleDate,
+  config: GeneralConfig = { ...defaultConfig }
+): Date {
   if (value && typeof value === 'string') {
-    const { day, month, year } = extract(value);
+    const { day, month, year } = extract(value, config);
     return new Date(year, parseInt(month, 10) - 1, day);
   }
 
   return new Date(value);
 }
 
-export function isValid(date: string | Date): boolean {
-  const isValidFns = fnsIsValid(parse(date));
+export function isValid(
+  date: PossibleDate,
+  config: GeneralConfig = { ...defaultConfig }
+): boolean {
+  const isValidFns = fnsIsValid(parse(date, config));
 
-  const { day, month, year } = extract(date);
+  const { day, month, year } = extract(date, config);
   const toCompare = new Date(year, parseInt(month - 1, 10), day, 0, 0, 0, 0);
   const dayMatches = toCompare.getDate() === parseInt(day, 10);
   const monthMatches = toCompare.getMonth() + 1 === parseInt(month, 10);
@@ -50,14 +68,24 @@ export function isValid(date: string | Date): boolean {
   return isValidFns && dayMatches && monthMatches && yearMatches;
 }
 
-export function isFuture(date: string | Date): boolean {
-  return fnsIsFuture(parse(date));
+export function isFuture(
+  date: PossibleDate,
+  config: GeneralConfig = { ...defaultConfig }
+): boolean {
+  return fnsIsFuture(parse(date, config));
 }
 
-export function isPast(date: string | Date): boolean {
-  return fnsIsPast(parse(date));
+export function isPast(
+  date: PossibleDate,
+  config: GeneralConfig = { ...defaultConfig }
+): boolean {
+  return fnsIsPast(parse(date, config));
 }
 
-export function compare(dateLeft: string | Date, dateRight: string | Date): number {
-  return fnsCompareAsc(parse(dateLeft), parse(dateRight));
+export function compare(
+  dateLeft: PossibleDate,
+  dateRight: PossibleDate,
+  config: GeneralConfig = { ...defaultConfig }
+): number {
+  return fnsCompareAsc(parse(dateLeft, config), parse(dateRight, config));
 }

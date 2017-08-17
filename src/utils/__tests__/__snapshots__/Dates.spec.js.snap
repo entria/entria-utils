@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`compare - Locale.BRAZIL - left date greater 1`] = `1`;
+
+exports[`compare - Locale.BRAZIL - right date greater 1`] = `-1`;
+
+exports[`compare - Locale.BRAZIL - same dates 1`] = `0`;
+
 exports[`compare - left date greater 1`] = `1`;
 
 exports[`compare - right date greater 1`] = `-1`;
@@ -14,7 +20,7 @@ Object {
 }
 `;
 
-exports[`extract - Locale.GENERAL 1`] = `
+exports[`extract 1`] = `
 Object {
   "day": "01",
   "month": "01",
@@ -22,13 +28,29 @@ Object {
 }
 `;
 
+exports[`isFuture - Locale.BRAZIL - future date 1`] = `true`;
+
+exports[`isFuture - Locale.BRAZIL - past date 1`] = `false`;
+
 exports[`isFuture - future date 1`] = `true`;
 
 exports[`isFuture - past date 1`] = `false`;
 
+exports[`isPast - Locale.BRAZIL - future date 1`] = `false`;
+
+exports[`isPast - Locale.BRAZIL - past date 1`] = `true`;
+
 exports[`isPast - future date 1`] = `false`;
 
 exports[`isPast - past date 1`] = `true`;
+
+exports[`isValid - Locale.BRAZIL - invalid date 1`] = `false`;
+
+exports[`isValid - Locale.BRAZIL - invalid leap date 1`] = `false`;
+
+exports[`isValid - Locale.BRAZIL - valid date 1`] = `true`;
+
+exports[`isValid - Locale.BRAZIL - valid leap date 1`] = `true`;
 
 exports[`isValid - invalid date 1`] = `false`;
 
@@ -38,8 +60,8 @@ exports[`isValid - valid date 1`] = `true`;
 
 exports[`isValid - valid leap date 1`] = `true`;
 
-exports[`parse - Locale.BRAZIL string 1`] = `2000-01-01T02:00:00.000Z`;
-
-exports[`parse - Locale.GENERAL string 1`] = `2000-01-01T02:00:00.000Z`;
+exports[`parse - Locale.BRAZIL 1`] = `2000-01-01T02:00:00.000Z`;
 
 exports[`parse - another date 1`] = `2000-01-01T02:00:00.000Z`;
+
+exports[`parse 1`] = `2000-01-01T02:00:00.000Z`;
