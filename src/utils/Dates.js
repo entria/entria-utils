@@ -1,4 +1,9 @@
 // @flow
+import fnsIsValid from 'date-fns/is_valid';
+import fnsIsFuture from 'date-fns/is_future';
+import fnsIsPast from 'date-fns/is_past';
+import fnsCompareAsc from 'date-fns/compare_asc';
+
 import * as Locale from './Locale';
 
 type ExtractedDate = {
@@ -31,4 +36,28 @@ export function parse(value: string | Date): Date {
   }
 
   return new Date(value);
+}
+
+export function isValid(date: string | Date): boolean {
+  const isValidFns = fnsIsValid(parse(date));
+
+  const { day, month, year } = extract(date);
+  const toCompare = new Date(year, parseInt(month - 1, 10), day, 0, 0, 0, 0);
+  const dayMatches = toCompare.getDate() === parseInt(day, 10);
+  const monthMatches = toCompare.getMonth() + 1 === parseInt(month, 10);
+  const yearMatches = toCompare.getFullYear() === parseInt(year, 10);
+
+  return isValidFns && dayMatches && monthMatches && yearMatches;
+}
+
+export function isFuture(date: string | Date): boolean {
+  return fnsIsFuture(parse(date));
+}
+
+export function isPast(date: string | Date): boolean {
+  return fnsIsPast(parse(date));
+}
+
+export function compare(dateLeft: string | Date, dateRight: string | Date): number {
+  return fnsCompareAsc(parse(dateLeft), parse(dateRight));
 }
