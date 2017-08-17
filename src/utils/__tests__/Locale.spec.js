@@ -1,4 +1,7 @@
+import { setupTest } from '../../../test/utils';
 import * as Locale from '../Locale';
+
+beforeEach(async () => setupTest());
 
 it('set - no props', () => {
   Locale.set();
