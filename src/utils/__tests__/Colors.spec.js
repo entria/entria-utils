@@ -1,4 +1,7 @@
+import { setupTest } from '../../../test/utils';
 import * as Colors from '../Colors';
+
+beforeEach(async () => setupTest());
 
 it('hexToRGBObject', () => {
   expect(Colors.hexToRGBObject('#ffffff')).toMatchSnapshot();

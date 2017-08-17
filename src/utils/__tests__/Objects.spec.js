@@ -1,4 +1,7 @@
+import { setupTest } from '../../../test/utils';
 import * as Objects from '../Objects';
+
+beforeEach(async () => setupTest());
 
 it('concat - should return an empty object', () => {
   const objectOne = {};

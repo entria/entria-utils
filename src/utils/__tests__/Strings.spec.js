@@ -1,4 +1,7 @@
+import { setupTest } from '../../../test/utils';
 import * as Strings from '../Strings';
+
+beforeEach(async () => setupTest());
 
 it('isEmpty - should return true if null', () => {
   expect(Strings.isEmpty(null)).toMatchSnapshot();

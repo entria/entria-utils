@@ -1,5 +1,8 @@
+import { setupTest } from '../../../test/utils';
 import * as Dates from '../Dates';
 import * as Locale from '../Locale';
+
+beforeEach(async () => setupTest());
 
 it('extract - Locale.GENERAL', () => {
   Locale.set(Locale.GENERAL);

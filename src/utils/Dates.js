@@ -6,9 +6,7 @@ type ExtractedDate = {
   month: string,
   year: string,
 };
-export function extract(value: string): ExtractedDate {
-  const locale = Locale.get();
-
+export function extract(value: string, locale: string = Locale.get()): ExtractedDate {
   // brazil = dd/mm/yyyy
   if (locale === Locale.BRAZIL) {
     return {
@@ -26,7 +24,7 @@ export function extract(value: string): ExtractedDate {
   };
 }
 
-export function parse(value) {
+export function parse(value: string | Date): Date {
   if (value && typeof value === 'string') {
     const { day, month, year } = extract(value);
     return new Date(year, parseInt(month, 10) - 1, day);
