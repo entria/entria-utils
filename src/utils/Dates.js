@@ -19,7 +19,7 @@ const sanitizeConfig = (config: GeneralConfig): GeneralConfig => {
   }
 
   return sanitizedConfig;
-}
+};
 
 type ExtractedDate = {
   day: string,
