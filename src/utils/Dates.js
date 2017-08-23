@@ -9,11 +9,17 @@ import * as Locale from './Locale';
 type PossibleDate = Date | string;
 
 type GeneralConfig = {
-  locale: string,
+  locale?: string,
 };
-const defaultConfig: GeneralConfig = {
-  locale: Locale.get(),
-};
+const sanitizeConfig = (config: GeneralConfig): GeneralConfig => {
+  const sanitizedConfig = { ...config };
+
+  if (!sanitizedConfig.locale) {
+    sanitizedConfig.locale = Locale.get();
+  }
+
+  return sanitizedConfig;
+}
 
 type ExtractedDate = {
   day: string,
@@ -22,10 +28,12 @@ type ExtractedDate = {
 };
 export function extract(
   value: string,
-  config: GeneralConfig = { ...defaultConfig }
+  config: GeneralConfig = {}
 ): ExtractedDate {
+  const sanitizedConfig = sanitizeConfig(config);
+
   // brazil = dd/mm/yyyy
-  if (config.locale === Locale.BRAZIL) {
+  if (sanitizedConfig.locale === Locale.BRAZIL) {
     return {
       day: value.substr(0, 2),
       month: value.substr(3, 2),
@@ -43,7 +51,7 @@ export function extract(
 
 export function parse(
   value: PossibleDate,
-  config: GeneralConfig = { ...defaultConfig }
+  config: GeneralConfig = {}
 ): Date {
   if (value && typeof value === 'string') {
     const { day, month, year } = extract(value, config);
@@ -55,7 +63,7 @@ export function parse(
 
 export function isValid(
   date: PossibleDate,
-  config: GeneralConfig = { ...defaultConfig }
+  config: GeneralConfig = {}
 ): boolean {
   const isValidFns = fnsIsValid(parse(date, config));
 
@@ -70,14 +78,14 @@ export function isValid(
 
 export function isFuture(
   date: PossibleDate,
-  config: GeneralConfig = { ...defaultConfig }
+  config: GeneralConfig = {}
 ): boolean {
   return fnsIsFuture(parse(date, config));
 }
 
 export function isPast(
   date: PossibleDate,
-  config: GeneralConfig = { ...defaultConfig }
+  config: GeneralConfig = {}
 ): boolean {
   return fnsIsPast(parse(date, config));
 }
@@ -85,7 +93,7 @@ export function isPast(
 export function compare(
   dateLeft: PossibleDate,
   dateRight: PossibleDate,
-  config: GeneralConfig = { ...defaultConfig }
+  config: GeneralConfig = {}
 ): number {
   return fnsCompareAsc(parse(dateLeft, config), parse(dateRight, config));
 }
