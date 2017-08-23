@@ -17,3 +17,25 @@ export const concat = (objectOne: Object, objectTwo: Object): Object => {
 
   return concatenated;
 };
+
+export const clear = (dirtyObject: Object): Object => {
+  const hasValue = (value: any): boolean => {
+    if (
+      value === undefined ||
+      value === null ||
+      value.length === 0 ||
+      (typeof value === typeof {} && Object.keys(value).length === 0)
+    ) {
+      return false;
+    }
+
+    return true;
+  };
+
+  return Object.keys(dirtyObject)
+    .filter(key => hasValue(dirtyObject[key]))
+    .reduce((acc, key) => ({
+      ...acc,
+      [key]: dirtyObject[key],
+    }), {});
+};

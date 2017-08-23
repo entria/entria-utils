@@ -38,7 +38,6 @@ it('concat - should override', () => {
   expect(Objects.concat(objectOne, objectTwo)).toMatchSnapshot();
 });
 
-
 it('concat - should deep concat', () => {
   const objectOne = { me: { john: 'doe' } };
   const objectTwo = { wife: { jane: 'doe' } };
@@ -51,4 +50,18 @@ it('concat - should deep override', () => {
   const objectTwo = { me: { john: 'doe awesome' } };
 
   expect(Objects.concat(objectOne, objectTwo)).toMatchSnapshot();
+});
+
+it('clear - should return an empty object', () => {
+  expect(Objects.clear({})).toMatchSnapshot();
+});
+
+it('clear - should clear the object', () => {
+  expect(Objects.clear({
+    john: 'doe',
+    me: null,
+    wife: {},
+    children: [],
+    role: '',
+  })).toMatchSnapshot();
 });
