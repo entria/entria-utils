@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`clear - should clear the object 1`] = `
+Object {
+  "john": "doe",
+}
+`;
+
+exports[`clear - should return an empty object 1`] = `Object {}`;
+
 exports[`concat - should concat 1`] = `
 Object {
   "jane": "doe",
