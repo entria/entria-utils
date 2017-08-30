@@ -32,10 +32,11 @@ export const clear = (dirtyObject: Object): Object => {
     return true;
   };
 
-  return Object.keys(dirtyObject)
-    .filter(key => hasValue(dirtyObject[key]))
-    .reduce((acc, key) => ({
+  return Object.keys(dirtyObject).filter(key => hasValue(dirtyObject[key])).reduce(
+    (acc, key) => ({
       ...acc,
       [key]: dirtyObject[key],
-    }), {});
+    }),
+    {},
+  );
 };
