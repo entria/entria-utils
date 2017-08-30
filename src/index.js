@@ -6,3 +6,4 @@ export * as Dates from './utils/Dates';
 export * as Locale from './utils/Locale';
 export * as Objects from './utils/Objects';
 export * as Strings from './utils/Strings';
+export StringMask from './utils/StringMask';

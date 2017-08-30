@@ -1,21 +1,7 @@
 {
   "name": "@entria/utils",
-  "version": "0.0.4",
   "description": "Entria utils",
-  "keywords": [
-    "react",
-    "entria",
-    "utils"
-  ],
-  "license": "ISC",
-  "homepage": "https://github.com/entria/entria-utils#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/entria/entria-utils"
-  },
-  "main": "lib/index.js",
-  "module": "src/index.js",
-  "jsnext:main": "src/index.js",
+  "version": "0.0.4",
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
     "babel-cli": "^6.24.1",
@@ -39,20 +25,22 @@
     "prettier": "^1.4.4",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "string-mask": "^0.3.0"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "date-fns": ">=1.28.5",
-    "prop-types": ">=15.5.10",
-    "react": ">=0.14",
-    "react-dom": ">=0.14"
-  },
+  "homepage": "https://github.com/entria/entria-utils#readme",
   "jest": {
     "setupFiles": [
       "<rootDir>/test/mocks/localStorage.js"
     ]
   },
+  "jsnext:main": "src/index.js",
+  "keywords": [
+    "entria",
+    "react",
+    "utils"
+  ],
+  "license": "ISC",
   "lint-staged": {
     "src/**/*.js": [
       "prettier --write --single-quote true --trailing-comma all --print-width 100",
@@ -60,21 +48,34 @@
       "git add"
     ]
   },
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "peerDependencies": {
+    "date-fns": ">=1.28.5",
+    "prop-types": ">=15.5.10",
+    "react": ">=0.14",
+    "react-dom": ">=0.14",
+    "string-mask": "^0.3.0"
+  },
   "pre-commit": "lint:staged",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/entria/entria-utils"
+  },
   "scripts": {
-    "prepublish": "npm run build",
     "build": "babel src -d lib",
-    "test": "jest --coverage --runInBand --forceExit",
-    "test:watch": "jest --watch --coverage",
-    "lint": "eslint --ext js src",
-    "lint:staged": "lint-staged",
-    "start": "start-storybook -p 6006 -c storybook",
+    "check": "npm run lint && npm run test",
     "demo:build": "build-storybook -c storybook",
     "demo:gh-pages": "gh-pages -d storybook-static/",
     "demo:publish": "npm run demo:build && npm run demo:gh-pages",
-    "check": "npm run lint && npm run test",
-    "release:patch": "npm run check && npm version patch && git push --follow-tags && npm publish --access public",
+    "lint": "eslint --ext js src",
+    "lint:staged": "lint-staged",
+    "prepublish": "npm run build",
+    "release:major": "npm run check && npm version major && git push --follow-tags && npm publish --access public",
     "release:minor": "npm run check && npm version minor && git push --follow-tags && npm publish --access public",
-    "release:major": "npm run check && npm version major && git push --follow-tags && npm publish --access public"
+    "release:patch": "npm run check && npm version patch && git push --follow-tags && npm publish --access public",
+    "start": "start-storybook -p 6006 -c storybook",
+    "test": "jest --coverage --runInBand --forceExit",
+    "test:watch": "jest --watch --coverage"
   }
 }

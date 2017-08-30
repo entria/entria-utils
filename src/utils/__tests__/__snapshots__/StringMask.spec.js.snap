@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should format string for CEP mask 1`] = `"99999-999"`;
+
+exports[`should format string for CNPJ mask 1`] = `"99.999.999/9999-99"`;
+
+exports[`should format string for CPF mask 1`] = `"999.999.999-99"`;
+
+exports[`should only format 6 characters of the CPF mask 1`] = `"999.999."`;
