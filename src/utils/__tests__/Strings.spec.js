@@ -15,6 +15,10 @@ it('isEmpty - should return true if empty string', () => {
   expect(Strings.isEmpty('')).toMatchSnapshot();
 });
 
+it('isEmpty - should return true if spaces string', () => {
+  expect(Strings.isEmpty('   ')).toMatchSnapshot();
+});
+
 it('isEmpty - should return false if filled', () => {
   expect(Strings.isEmpty('awesome')).toMatchSnapshot();
 });

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`isEmpty - should return false if filled 1`] = `false`;
+
+exports[`isEmpty - should return true if empty 1`] = `true`;
+
+exports[`isEmpty - should return true if null 1`] = `true`;
+
+exports[`isEmpty - should return true if undefined 1`] = `true`;
