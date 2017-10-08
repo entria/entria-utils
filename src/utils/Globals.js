@@ -20,9 +20,5 @@ export const isEmpty = (value: any) => {
     return Strings.isEmpty(value);
   }
 
-  if (typeof value === 'boolean') {
-    return value;
-  }
-
   return false;
 };

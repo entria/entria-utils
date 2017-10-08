@@ -36,11 +36,3 @@ it('isEmpty - should return true if empty string', () => {
 it('isEmpty - should return false if filled string', () => {
   expect(isEmpty('john')).toMatchSnapshot();
 });
-
-it('isEmpty - should return true if boolean true', () => {
-  expect(isEmpty(true)).toMatchSnapshot();
-});
-
-it('isEmpty - should return false if boolean false', () => {
-  expect(isEmpty(false)).toMatchSnapshot();
-});
