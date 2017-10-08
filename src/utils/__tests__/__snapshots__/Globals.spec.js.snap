@@ -1,14 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`isEmpty - should return false if boolean false 1`] = `false`;
-
 exports[`isEmpty - should return false if filled array 1`] = `false`;
 
 exports[`isEmpty - should return false if filled object 1`] = `false`;
 
 exports[`isEmpty - should return false if filled string 1`] = `false`;
-
-exports[`isEmpty - should return true if boolean true 1`] = `true`;
 
 exports[`isEmpty - should return true if empty array 1`] = `true`;
 
