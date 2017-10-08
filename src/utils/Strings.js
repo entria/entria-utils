@@ -1,5 +1,5 @@
 // @flow
-export const isEmpty = (value: string): boolean => value === undefined || value === null || value === '';
+export const isEmpty = (value: string): boolean => value === undefined || value === null || value.trim().length === 0;
 
 export const isAlpha = (value: string): boolean => /^[a-zA-ZÁÉÍÓÚáéíóúÃÕãõçÇ ]+$/.test(value);
 

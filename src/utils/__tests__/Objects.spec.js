@@ -65,3 +65,20 @@ it('clear - should clear the object', () => {
     role: '',
   })).toMatchSnapshot();
 });
+
+it('isEmpty - should return true if null', () => {
+  expect(Objects.isEmpty(null)).toMatchSnapshot();
+});
+
+it('isEmpty - should return true if undefined', () => {
+  expect(Objects.isEmpty(undefined)).toMatchSnapshot();
+});
+
+it('isEmpty - should return true if empty', () => {
+  expect(Objects.isEmpty({})).toMatchSnapshot();
+});
+
+it('isEmpty - should return false if filled', () => {
+  const value = { me: { john: 'doe' } };
+  expect(Objects.isEmpty(value)).toMatchSnapshot();
+});

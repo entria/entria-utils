@@ -39,3 +39,5 @@ export const clear = (dirtyObject: Object): Object => {
       [key]: dirtyObject[key],
     }), {});
 };
+
+export const isEmpty = (value: Object): boolean => value === undefined || value === null || Object.keys(value).length === 0;
