@@ -11,6 +11,14 @@ it('isEmpty - should return true if undefined', () => {
   expect(isEmpty(undefined)).toMatchSnapshot();
 });
 
+it('isEmpty - should return true if invalid date', () => {
+  expect(isEmpty(new Date('invalid date'))).toMatchSnapshot();
+});
+
+it('isEmpty - should return false if valid date', () => {
+  expect(isEmpty(new Date())).toMatchSnapshot();
+});
+
 it('isEmpty - should return true if empty array', () => {
   expect(isEmpty([])).toMatchSnapshot();
 });
