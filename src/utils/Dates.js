@@ -97,3 +97,10 @@ export function compare(
 ): number {
   return fnsCompareAsc(parse(dateLeft, config), parse(dateRight, config));
 }
+
+export function isEmpty(
+  date: PossibleDate,
+  config: GeneralConfig = {}
+): boolean {
+  return date === undefined || date === null || !fnsIsValid(parse(date, config));
+}

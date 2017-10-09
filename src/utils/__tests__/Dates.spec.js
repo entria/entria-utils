@@ -115,3 +115,11 @@ it('compare - Locale.BRAZIL - right date greater', () => {
 it('compare - Locale.BRAZIL - same dates', () => {
   expect(Dates.compare('01/01/2000', '01/01/2000', brazilConfig)).toMatchSnapshot();
 });
+
+it('isEmpty - should return true if invalid date', () => {
+  expect(Dates.isEmpty(new Date('invalid date'))).toMatchSnapshot();
+});
+
+it('isEmpty - should return false if valid date', () => {
+  expect(Dates.isEmpty(new Date())).toMatchSnapshot();
+});
