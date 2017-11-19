@@ -1,19 +1,22 @@
+// @flow
 import { Component } from 'react';
-import PropTypes from 'prop-types';
 
-class InfiniteScroll extends Component {
+import type { Node } from 'react';
+
+type Props = {
+  onScroll: () => void,
+  offset: number,
+  children: Node,
+};
+class InfiniteScroll extends Component<Props> {
   static defaultProps = {
     offset: 25,
     children: null,
   };
 
-  static propTypes = {
-    onScroll: PropTypes.func.isRequired,
-    offset: PropTypes.number,
-    children: PropTypes.node,
-  };
+  timeout: ?number;
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.timeout = null;
   }
@@ -33,13 +36,13 @@ class InfiniteScroll extends Component {
 
     this.timeout = setTimeout(() => {
       const visibleArea = window.scrollY + window.innerHeight;
-      const toReach = document.body.scrollHeight - this.props.offset;
+      const toReach = document.body && document.body.scrollHeight ? document.body.scrollHeight - this.props.offset : 0;
 
       if (visibleArea >= toReach) {
         this.props.onScroll();
       }
     }, 100);
-  }
+  };
 
   render() {
     return this.props.children;

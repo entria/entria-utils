@@ -1,11 +1,10 @@
+// @flow
 import { Component } from 'react';
-import PropTypes from 'prop-types';
 
-class DocumentTitle extends Component {
-  static propTypes = {
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  };
-
+type Props = {
+  title: string | Array<string>,
+};
+class DocumentTitle extends Component<Props> {
   static defaultProps = {
     title: [],
   };
@@ -14,7 +13,7 @@ class DocumentTitle extends Component {
     this.update(this.props.title);
   }
 
-  componentWillReceiveProps({ title }) {
+  componentWillReceiveProps({ title }: Props) {
     this.update(title);
   }
 
@@ -22,7 +21,7 @@ class DocumentTitle extends Component {
     return false;
   }
 
-  update(title) {
+  update(title: string | Array<string>) {
     let documentTitle = [];
 
     if (typeof title !== typeof undefined) {
